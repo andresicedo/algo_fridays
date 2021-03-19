@@ -51,17 +51,18 @@ fib(4)
 //4 => 3
 */
 
-// function fibonacci(inputNumber) {
-//     if(inputNumber === 1) {
-//         return [0,1];
-//     } else {
-//         let next = fibonacci(inputNumber - 1);
-//         next.push(next[next.length - 1] + next[next.length - 2]);
-//         return next;
-//     }
-// }
+function fibonacci(inputNumber) {
 
-// console.log(fibonacci(4));
+    if(inputNumber === 1) {
+        return [0,1];
+    } else {
+        let next = fibonacci(inputNumber - 1);
+        next.push(next[next.length - 1] + next[next.length - 2]);
+        return next;
+    }
+}
+
+console.log(fibonacci(4));
 
 /*
 Product of Array
@@ -96,42 +97,42 @@ Hint: I would probably go the recursive helper method route for this one
 
 Check out this video of a DC instructor explaining how to solve this problem
 */
-function permutations(array) {
-    //create a result array
-    let possibilities = [];
-    //edge cases for empty array, array with length of 1 and index type
-    if (array.length === 0) {
-        return [];
-    }
-    if (array.length === 1) {
-        return [array];
-    }
-    //iterate over array
-    for (let i = 0; i < array.length; i++) {
-        if(typeof array[i] !== "number") {
-            continue;
-        }
-        //create a var that is an array of the current index
-        const current = [array[i]];
-        //create a var that contains the remaining indexes after i
-        const remaining = array.slice(0, i).concat(array.slice(i + 1));
-        //create a var that will call the permutations function with the remaining
-        //array of numbers as the argument - (recursion)
-        const remainingNumbers = permutations(remaining);
-        //iterate over the remaining numbers, starting at 0
-       for (let j = 0; j < remainingNumbers.length; j++) {
-           //combine the current array from the initial iteration and the remaining 
-           //numbers iteration
-          const possibleArrays =  current.concat(remainingNumbers[j]);
-          //push all array possibilities to the possibilites array
-          possibilities.push(possibleArrays);
-         }
-    }
-      return possibilities;
-     }
+// function permutations(array) {
+//     //create a result array
+//     let possibilities = [];
+//     //edge cases for empty array, array with length of 1 and index type
+//     if (array.length === 0) {
+//         return [];
+//     }
+//     if (array.length === 1) {
+//         return [array];
+//     }
+//     //iterate over array
+//     for (let i = 0; i < array.length; i++) {
+//         if(typeof array[i] !== "number") {
+//             continue;
+//         }
+//         //create a var that is an array of the current index
+//         const current = [array[i]];
+//         //create a var that contains the remaining indexes after i
+//         const remaining = array.slice(0, i).concat(array.slice(i + 1));
+//         //create a var that will call the permutations function with the remaining
+//         //array of numbers as the argument - (recursion)
+//         const remainingNumbers = permutations(remaining);
+//         //iterate over the remaining numbers, starting at 0
+//        for (let j = 0; j < remainingNumbers.length; j++) {
+//            //combine the current array from the initial iteration and the remaining 
+//            //numbers iteration
+//           const possibleArrays =  current.concat(remainingNumbers[j]);
+//           //push all array possibilities to the possibilites array
+//           possibilities.push(possibleArrays);
+//          }
+//     }
+//       return possibilities;
+//      }
 
-console.log(permutations([1, 2])) //[[1, 2], [2, 1]]
-console.log(permutations([1, 2, 3])) //[[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], [3, 2, 1]]
+// console.log(permutations([1, 2])) //[[1, 2], [2, 1]]
+// console.log(permutations([1, 2, 3])) //[[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], [3, 2, 1]]
 
 
 /*
