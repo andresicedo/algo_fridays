@@ -54,3 +54,36 @@ function maxProfit(array) {
 
 console.log(maxProfit([7,1,5,3,6,4]))//5
 console.log(maxProfit([0,1,2,3,4,5,6,7,4,5]))//6
+
+
+function getMaxProfit(arr) {
+    var minIdx = 0;
+    var maxIdx = 1;
+    var currMin = 0;
+    var maxProfit = 0;
+  
+    if (arr.length < 2) {
+      throw new Error("Need atleast two time periods to be profitable!");
+    }
+  
+    for (var i = 1; i < arr.length; i++) {
+      // new current min.
+      // finding the new low each loop but doesnt set it as minindex until below
+      if (arr[i] < arr[currMin]) {
+        currMin = i;
+      }
+  
+      // new best profit
+      // only changes min index and max index if currminn and i create more profit
+      // if new currmin and currindex have more profit then switch
+      if (arr[maxIdx] - arr[minIdx] < arr[i] - arr[currMin]) {
+        maxIdx = i;
+        minIdx = currMin;
+      }
+    }
+  
+    maxProfit = arr[maxIdx] - arr[minIdx];
+    return maxProfit;
+  }
+
+  console.log(getMaxProfit([7,1,5,3,6,4]))

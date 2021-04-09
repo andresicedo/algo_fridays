@@ -80,17 +80,17 @@ print(validAnagram('cinema', 'iceman')); #true
 print(validAnagram('rat', 'car')); #false
 print(validAnagram('qwerty', 'qeywrt')); #true
 '''
-# def validAnagram(str1, str2):
-#     if ''.join(sorted(str1)) in ''.join(sorted(str2)):
-#         return True
-#     else:
-#         return False
+def validAnagram(str1, str2):
+    if ''.join(sorted(str1)) in ''.join(sorted(str2)):
+        return True
+    else:
+        return False
 
-# print(validAnagram('', '')); #true
-# print(validAnagram('aaz', 'zza')); #false
-# print(validAnagram('cinema', 'iceman')); #true
-# print(validAnagram('rat', 'car')); #false
-# print(validAnagram('qwerty', 'qeywrt')); #true
+print(validAnagram('', '')); #true
+print(validAnagram('aaz', 'zza')); #false
+print(validAnagram('cinema', 'iceman')); #true
+print(validAnagram('rat', 'car')); #false
+print(validAnagram('qwerty', 'qeywrt')); #true
 
 '''
 6. Question 6:
